@@ -365,9 +365,9 @@ function startSYloveBot(token) {
             const menuButtons = {
                 reply_markup: {
                     inline_keyboard: [
-                        [{ text: 'I|  Bug Menu', callback_data: 'bug_menu' }, { text: 'I|  Misc Menu', callback_data: 'misc_menu' }],
-                        [{ text: 'I|  Channel ↗', url: `${config.channel}` }],
-                        [{ text: 'I|  Group ↗', url: `${config.group}` }]
+                        [{ text: '🐛 Bug Menu', callback_data: 'bug_menu' }, { text: '📋 Misc Menu', callback_data: 'misc_menu' }],
+                        [{ text: '📢 Channel ↗', url: `${config.channel}` }],
+                        [{ text: '👥 Group ↗', url: `${config.group}` }]
                     ]
                 }
             };
@@ -380,7 +380,7 @@ function startSYloveBot(token) {
             });
         });
 
-        // ==================== CALLBACK QUERY HANDLER (UPDATED WITH NEW COMMANDS) ====================
+        // ==================== CALLBACK QUERY HANDLER ====================
         S7.on('callback_query', async (query) => {
             const chatId = query.message.chat.id;
             const messageId = query.message.message_id;
@@ -405,9 +405,9 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: 'I|  Bug Menu', callback_data: 'bug_menu' }, { text: 'I|  Misc Menu', callback_data: 'misc_menu' }],
-                            [{ text: 'I|  Channel ↗', url: `${config.channel}` }],
-                            [{ text: 'I|  Group ↗', url: `${config.group}` }]
+                            [{ text: '🐛 Bug Menu', callback_data: 'bug_menu' }, { text: '📋 Misc Menu', callback_data: 'misc_menu' }],
+                            [{ text: '📢 Channel ↗', url: `${config.channel}` }],
+                            [{ text: '👥 Group ↗', url: `${config.group}` }]
                         ]
                     }
                 });
@@ -425,16 +425,16 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: 'I| 𝖠𝗇𝖽𝗋𝗈𝗂𝖽 𝖡𝗎𝗀𝗌', callback_data: 'android_menu' }],
-                            [{ text: 'I| 𝖨𝗈𝗌 𝖡𝗎𝗀𝗌', callback_data: 'ios_menu' }],
-                            [{ text: 'I| 𝖦𝗋𝗈𝗎𝗉 𝖡𝗎𝗀𝗌', callback_data: 'group_menu' }],
-                            [{ text: 'I| 𝖡𝖺𝖼𝗄 𝗍𝗈 𝖬𝖺𝗂𝗇', callback_data: 'main_menu' }]
+                            [{ text: '📱 Android Bugs', callback_data: 'android_menu' }],
+                            [{ text: '🍎 iOS Bugs', callback_data: 'ios_menu' }],
+                            [{ text: '👥 Group Bugs', callback_data: 'group_menu' }],
+                            [{ text: '◀️ Back to Main', callback_data: 'main_menu' }]
                         ]
                     }
                 });
             }
 
-            // Android Menu - UPDATED WITH NEW COMMANDS
+            // Android Menu
             else if (data === 'android_menu') {
                 const androidText = MainSYLoVe(name, uptime, userId) + `
 ┌──────┤ 𝖠𝖭𝖣𝖱𝖮𝖨𝖣 𝖡𝖴𝖦𝖲 ├──────┐
@@ -457,7 +457,7 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: '◀️ 𝖡𝖺𝖼𝗄 𝗍𝗈 𝖡𝗎𝗀 𝖬𝖾𝗇𝗎', callback_data: 'bug_menu' }]
+                            [{ text: '◀️ Back to Bug Menu', callback_data: 'bug_menu' }]
                         ]
                     }
                 });
@@ -477,13 +477,13 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: '◀️ 𝖡𝖺𝖼𝗄 𝗍𝗈 𝖡𝗎𝗀 𝖬𝖾𝗇𝗎', callback_data: 'bug_menu' }]
+                            [{ text: '◀️ Back to Bug Menu', callback_data: 'bug_menu' }]
                         ]
                     }
                 });
             }
 
-            // Group Menu - UPDATED WITH NEW COMMANDS
+            // Group Menu
             else if (data === 'group_menu') {
                 const groupText = MainSYLoVe(name, uptime, userId) + `
 ┌──────┤ 𝖦𝖱𝖮𝖴𝖯 𝖡𝖴𝖦𝖲 ├──────┐
@@ -506,7 +506,7 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: '◀️ 𝖡𝖺𝖼𝗄 𝗍𝗈 𝖡𝗎𝗀 𝖬𝖾𝗇𝗎', callback_data: 'bug_menu' }]
+                            [{ text: '◀️ Back to Bug Menu', callback_data: 'bug_menu' }]
                         ]
                     }
                 });
@@ -537,7 +537,7 @@ function startSYloveBot(token) {
                     message_id: messageId,
                     reply_markup: {
                         inline_keyboard: [
-                            [{ text: '◀️ 𝖡𝖺𝖼𝗄 𝗍𝗈 𝖬𝖺𝗂𝗇', callback_data: 'main_menu' }]
+                            [{ text: '◀️ Back to Main', callback_data: 'main_menu' }]
                         ]
                     }
                 });
@@ -872,7 +872,7 @@ function startSYloveBot(token) {
             }
         });
 
-        // ==================== NEW ANDROID BUG COMMANDS FROM YOUR SCRIPT ====================
+        // ==================== NEW ANDROID BUG COMMANDS ====================
 
         SYLoVe(['crashjam', 'trashsystem'], async (msg) => {
             const chatId = msg.chat.id.toString();
@@ -926,7 +926,7 @@ function startSYloveBot(token) {
             }
         });
 
-        // ==================== NEW GROUP BUG COMMANDS FROM YOUR SCRIPT ====================
+        // ==================== NEW GROUP BUG COMMANDS ====================
 
         SYLoVe(['killgc', 'groupfriz'], async (msg) => {
             try {
